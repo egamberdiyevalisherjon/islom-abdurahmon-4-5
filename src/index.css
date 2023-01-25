@@ -1,0 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+#login-page-wrapper {
+  background: url(/book-shelf.jpg) center / cover no-repeat;
+}

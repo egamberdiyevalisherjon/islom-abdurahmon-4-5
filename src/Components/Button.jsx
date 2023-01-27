@@ -1,4 +1,4 @@
-import { UPDATE_BOOKMARKS } from "../store/actions";
+import { UPDATE_BOOKMARKS, UPDATE_DETAIL } from "../store/actions";
 import { useDispatch } from "react-redux";
 
 export const BookMarkButton = ({ book }) => {
@@ -45,9 +45,18 @@ export const ReadButton = ({ previewLink }) => {
   );
 };
 
-export const MoreInfoButton = () => {
+export const MoreInfoButton = ({ book }) => {
+  const dispatch = useDispatch();
+
+  function handleOpenDetail() {
+    dispatch({ type: UPDATE_DETAIL, payload: book });
+  }
+
   return (
-    <button className="w-full text-2xl py-2 px-4 text-sky-50 bg-sky-400 rounded-2xl  hover:bg-sky-500 transition-colors ease-in-out duration-300">
+    <button
+      onClick={handleOpenDetail}
+      className="w-full text-2xl py-2 px-4 text-sky-50 bg-sky-400 rounded-2xl  hover:bg-sky-500 transition-colors ease-in-out duration-300"
+    >
       More Info
     </button>
   );

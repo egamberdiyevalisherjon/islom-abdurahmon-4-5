@@ -8,7 +8,7 @@ const Book = ({ book }) => {
     <div className="bg-slate-50 border">
       <img
         className="w-full h-96 object-cover"
-        src={volumeInfo.imageLinks.thumbnail}
+        src={volumeInfo.imageLinks?.thumbnail}
         alt=""
       />
       <div className="p-4">
@@ -18,7 +18,7 @@ const Book = ({ book }) => {
         <div className="flex flex-col gap-4 py-4">
           <div className="flex gap-4">
             <BookMarkButton book={book} />
-            <MoreInfoButton />
+            <MoreInfoButton book={book} />
           </div>
           <div>
             <ReadButton previewLink={volumeInfo.previewLink} />

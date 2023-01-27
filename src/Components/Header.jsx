@@ -17,6 +17,10 @@ const Header = () => {
     navigate("/login");
   }
 
+  function handleSubmit(e) {
+    e.preventDefault();
+  }
+
   async function search(e) {
     let text = e.target.value;
 
@@ -47,7 +51,7 @@ const Header = () => {
           <img src="/logo.png" alt="Logo" />
         </Link>
 
-        <form className="w-full">
+        <form className="w-full" onSubmit={handleSubmit}>
           <input
             type="search"
             placeholder="Search book"

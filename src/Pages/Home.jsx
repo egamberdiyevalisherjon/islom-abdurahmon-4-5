@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Header from "../Components/Header";
 import Result from "../Components/Result";
+import BookDetail from '../Components/BookDetail';
 
 const Home = () => {
   const navigate = useNavigate();
@@ -15,6 +16,7 @@ const Home = () => {
     <div>
       <Header />
       <Result />
+      <BookDetail />
     </div>
   );
 };

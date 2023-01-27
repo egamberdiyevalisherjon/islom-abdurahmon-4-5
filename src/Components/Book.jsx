@@ -17,7 +17,7 @@ const Book = ({ book }) => {
         <p>{volumeInfo.publishedDate || "No Info"}</p>
         <div className="flex flex-col gap-4 py-4">
           <div className="flex gap-4">
-            <BookMarkButton bookId={book.id} />
+            <BookMarkButton book={book} />
             <MoreInfoButton />
           </div>
           <div>

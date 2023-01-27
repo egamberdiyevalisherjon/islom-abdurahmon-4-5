@@ -1,10 +1,25 @@
-export const BookMarkButton = ({ bookId }) => {
+import { UPDATE_BOOKMARKS } from "../store/actions";
+import { useDispatch } from "react-redux";
+
+export const BookMarkButton = ({ book }) => {
+  const dispatch = useDispatch();
+
   function handleBookMark() {
     let bookMarks = JSON.parse(localStorage.getItem("bookmarks") || "[]");
 
-    if (!bookMarks.includes(bookId)) {
-      bookMarks.push(bookId);
-      localStorage.setItem("bookMarks", bookMarks);
+    if (!bookMarks.find((b) => b.id === book.id)) {
+      bookMarks.push({
+        id: book.id,
+        title: book.volumeInfo.title,
+        publisher: book.volumeInfo.publisher,
+        previewLink: book.volumeInfo.previewLink,
+      });
+      localStorage.setItem("bookmarks", JSON.stringify(bookMarks));
+
+      dispatch({
+        type: UPDATE_BOOKMARKS,
+        payload: bookMarks,
+      });
     }
   }
 

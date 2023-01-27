@@ -4,6 +4,7 @@ const initialState = {
   total: 0,
   books: [],
   page: 1,
+  hasSearched: false,
 };
 
 function searchReducer(state = initialState, { type, payload }) {
@@ -12,6 +13,7 @@ function searchReducer(state = initialState, { type, payload }) {
       return {
         ...state,
         ...payload,
+        hasSearched: true,
       };
 
     default:

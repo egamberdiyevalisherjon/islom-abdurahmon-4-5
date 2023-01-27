@@ -20,10 +20,19 @@ const Header = () => {
   async function search(e) {
     let text = e.target.value;
 
+    if (!text) {
+      dispatch({
+        type: UPDATE_SEARCH_RESULT,
+        payload: { total: 0, books: [] },
+      });
+
+      return;
+    }
+
     let data = await searchBook(text);
 
     let total = data.totalItems;
-    let books = data.items;
+    let books = data.items || [];
 
     dispatch({
       type: UPDATE_SEARCH_RESULT,
